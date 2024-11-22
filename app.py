@@ -29,20 +29,17 @@ selected_model = models[selected_model_name]
 # Crear el formulario de entrada para que el usuario ingrese los datos
 age = st.slider('Age', 20, 100, 50)
 sex = st.selectbox('Sex', ['Male', 'Female'])
-cp = st.selectbox('Chest Pain Type', [1, 2, 3, 4])  # Ejemplo de valores de CP
+cp = st.selectbox('Chest Pain Type', ['TA', 'ATA', 'NAP', 'ASY'])
 trestbps = st.slider('Resting Blood Pressure', 90, 200, 120)
 chol = st.slider('Cholesterol', 100, 600, 200)
 fbs = st.selectbox('Fasting Blood Sugar', [0, 1])
-restecg = st.selectbox('Resting Electrocardiographic Results', [0, 1, 2])
+restecg = st.selectbox('Resting Electrocardiographic Results', ['Normal', 'ST', 'LVH'])
 thalach = st.slider('Maximum Heart Rate', 50, 220, 150)
-exang = st.selectbox('Exercise Angina', [0, 1])
+exang = st.selectbox('Exercise Angina', ['Y', 'N'])
 oldpeak = st.slider('Oldpeak', 0.0, 6.0, 1.0)
-slope = st.selectbox('Slope of ST Segment', [1, 2, 3])
+slope = st.selectbox('Slope of ST Segment', ['Up', 'Flat', 'Down'])
 
 # Preprocesar los datos de entrada
-sex = 1 if sex == 'Male' else 0
-
-# Crear el DataFrame para la predicción
 input_data = pd.DataFrame({
     'Age': [age],
     'Sex': [sex],
@@ -57,9 +54,35 @@ input_data = pd.DataFrame({
     'ST_Slope': [slope]
 })
 
+# Aplicar preprocesamiento (asegúrate de que esto sea igual al entrenamiento)
+def preprocess_input(data):
+    # Codificar variables categóricas
+    data = pd.get_dummies(data, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
+    
+    # Asegurar que las columnas coincidan con las del entrenamiento
+    expected_columns = [
+        'Age', 'RestingBP', 'Cholesterol', 'FastingBS', 'MaxHR', 'Oldpeak',
+        'Sex_Female', 'Sex_Male',
+        'ChestPainType_ASY', 'ChestPainType_ATA', 'ChestPainType_NAP', 'ChestPainType_TA',
+        'RestingECG_LVH', 'RestingECG_Normal', 'RestingECG_ST',
+        'ExerciseAngina_N', 'ExerciseAngina_Y',
+        'ST_Slope_Down', 'ST_Slope_Flat', 'ST_Slope_Up'
+    ]
+    
+    # Agregar columnas faltantes con valores 0
+    for col in expected_columns:
+        if col not in data.columns:
+            data[col] = 0
+    
+    # Reordenar las columnas para que coincidan
+    data = data[expected_columns]
+    return data
+
+processed_data = preprocess_input(input_data)
+
 # Botón para realizar la predicción
 if st.button('Predict'):
-    prediction = selected_model.predict(input_data)[0]
+    prediction = selected_model.predict(processed_data)[0]
     # Mostrar el resultado
     if prediction == 1:
         st.success(f'The patient has a higher risk of heart disease using {selected_model_name}.')
