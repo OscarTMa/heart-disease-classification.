@@ -16,4 +16,5 @@ nbval==0.9.0
 flake8==6.0.0
 
 nbconvert==7.5.0
+kagglehub
 
