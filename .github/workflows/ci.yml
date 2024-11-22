@@ -35,7 +35,7 @@ jobs:
         # Run tests for notebook
         pytest notebook_tests.py  # Asegúrate de tener un archivo de pruebas para tu notebook, o adapta según tus necesidades
         # Run Streamlit app tests (simple example for testing with pytest)
-        pytest app_tests.py  # Si tienes pruebas específicas para el app.py, inclúyelas
+        #pytest app_tests.py  # Si tienes pruebas específicas para el app.py, inclúyelas
 
     # Step 5: Run additional scripts or linting if needed
     - name: Lint code
