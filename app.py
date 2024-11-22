@@ -54,31 +54,26 @@ input_data = pd.DataFrame({
     'ST_Slope': [slope]
 })
 
-# Aplicar preprocesamiento (asegúrate de que esto sea igual al entrenamiento)
-def preprocess_input(data):
+# Cargar las columnas del entrenamiento
+columns_path = os.path.join(models_dir, "training_columns.pkl")
+with open(columns_path, "rb") as file:
+    training_columns = pickle.load(file)
+
+# Aplicar preprocesamiento
+def preprocess_input(data, training_columns):
     # Codificar variables categóricas
     data = pd.get_dummies(data, columns=['Sex', 'ChestPainType', 'RestingECG', 'ExerciseAngina', 'ST_Slope'])
     
-    # Asegurar que las columnas coincidan con las del entrenamiento
-    expected_columns = [
-        'Age', 'RestingBP', 'Cholesterol', 'FastingBS', 'MaxHR', 'Oldpeak',
-        'Sex_Female', 'Sex_Male',
-        'ChestPainType_ASY', 'ChestPainType_ATA', 'ChestPainType_NAP', 'ChestPainType_TA',
-        'RestingECG_LVH', 'RestingECG_Normal', 'RestingECG_ST',
-        'ExerciseAngina_N', 'ExerciseAngina_Y',
-        'ST_Slope_Down', 'ST_Slope_Flat', 'ST_Slope_Up'
-    ]
-    
     # Agregar columnas faltantes con valores 0
-    for col in expected_columns:
+    for col in training_columns:
         if col not in data.columns:
             data[col] = 0
     
     # Reordenar las columnas para que coincidan
-    data = data[expected_columns]
+    data = data[training_columns]
     return data
 
-processed_data = preprocess_input(input_data)
+processed_data = preprocess_input(input_data, training_columns)
 
 # Botón para realizar la predicción
 if st.button('Predict'):
