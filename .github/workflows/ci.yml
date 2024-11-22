@@ -1,4 +1,4 @@
-name: Deploy notebook heart_
+name: Deploy notebook heart_disease_
 
 on:
   push:
