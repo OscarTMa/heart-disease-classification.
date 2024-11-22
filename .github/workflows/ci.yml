@@ -17,10 +17,14 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'
-
-    - name: Deploy to Streamlit Cloud
+    # Step : Run notebook to train models
+    - name: Train models from notebook
       run: |
-        python3 -m venv venv
-        source venv/bin/activate
-        pip install -r requirements.txt
-        streamlit run app.py
+          jupyter nbconvert --execute --to notebook --inplace notebooks/heart_disease_classification.ipynb
+    
+    #- name: Deploy to Streamlit Cloud
+    #  run: |
+    #    python3 -m venv venv
+    #    source venv/bin/activate
+    #    pip install -r requirements.txt
+    #    streamlit run app.py
