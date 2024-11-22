@@ -27,8 +27,9 @@ jobs:
     - name: List models directory
       run: |
         echo "Listing contents of the models directory:"
-        ls -l 
-    
+        ls -l notebooks
+        ls -l /notebooks
+        
     - name: Verify models
       run: |
        if [ ! -d "models" ]; then
