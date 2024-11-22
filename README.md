@@ -30,11 +30,13 @@ To run the project locally, follow these steps:
    ```bash
    git clone https://github.com/oscarTMa/heart-disease-classification.git
 
-2.Navigate to the project directory:                                    
-      `cd heart-disease-classification`
+2. Navigate to the project directory:                                    
+   ```bash
+   cd heart-disease-classification
 
-3.Install the required Python libraries:                          
-      `pip install -r requirements.txt`
+3. Install the required Python libraries:                          
+   ```bash
+   pip install -r requirements.txt
 
 # Usage
     Notebook:                                    
