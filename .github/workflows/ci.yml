@@ -3,7 +3,7 @@ name: Python CI
 on:
   push:
     branches:
-      - main  # Cambia a tu rama principal si es diferente
+      - main  # Cambia a tu rama principal si es diferente.solo si
   pull_request:
     branches:
       - main  # Cambia a tu rama principal si es diferente
