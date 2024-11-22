@@ -1,4 +1,4 @@
-name: Deploy notebook
+name: Deploy notebook heart_
 
 on:
   push:
