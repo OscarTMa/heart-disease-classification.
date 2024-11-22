@@ -1,11 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 
-# Cargar el modelo entrenado
-model = pickle.load(open('heart_disease_model.pkl', 'rb'))
-
+###############################
+# Entrenar y guardar cada modelo
+for model_name, model in models.items():
+    model.fit(X_train, y_train)
+    model_path = os.path.join(models_dir, f"{model_name}.pkl")
+    with open(model_path, "wb") as file:
+        pickle.dump(model, file)
+    print(f"Model {model_name} saved at {model_path}")
+###############################
 # Crear el formulario de entrada para que el usuario ingrese los datos
 st.title('Heart Disease Prediction')
 
