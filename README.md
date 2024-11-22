@@ -39,10 +39,10 @@ To run the project locally, follow these steps:
    pip install -r requirements.txt
 
 # Usage
-    Notebook:                                    
+   Notebook:                                    
     The initial analysis and modeling will be conducted in a Jupyter Notebook, hosted in Google Colab. The notebook file can be found in the notebooks/ directory.
 
-    Dashboard:
+   Dashboard:
     An interactive dashboard will be built using Streamlit to showcase predictions and insights. Instructions for running the dashboard will be added in later stages.
 
 ## Project Structure
