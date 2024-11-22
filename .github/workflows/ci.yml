@@ -1,49 +1,27 @@
-name: Python CI
+name: Deploy to Streamlit Cloud
 
 on:
   push:
     branches:
-      - main  # Cambia a tu rama principal si es diferente.solo si
-  pull_request:
-    branches:
-      - main  # Cambia a tu rama principal si es diferente
+      - main  # O la rama que prefieras
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout the repository
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Step 2: Set up Python
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # Cambia a la versión de Python que necesitas
+        python-version: '3.9'
 
-    # Step 3: Install dependencies
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Step 4: Run tests on the notebook and app.py
-    - name: Run tests
+    - name: Deploy to Streamlit Cloud
       run: |
-        # Run tests for notebook
-        pytest notebook_tests.py  # Asegúrate de tener un archivo de pruebas para tu notebook, o adapta según tus necesidades
-        # Run Streamlit app tests (simple example for testing with pytest)
-        #pytest app_tests.py  # Si tienes pruebas específicas para el app.py, inclúyelas
-
-    # Step 5: Run additional scripts or linting if needed
-    - name: Lint code
-      run: |
-        pip install flake8
-        flake8 .
-
-    # Optional: Deploy to Streamlit Cloud (or any additional steps)
-    # - name: Deploy to Streamlit Cloud
-    #   run: |
-    #     streamlit run app.py
+        streamlit run app.py
