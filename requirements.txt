@@ -14,3 +14,6 @@ nbval==0.9.0
 
 # For additional testing or linting
 flake8==6.0.0
+
+nbconvert==7.5.0
+
