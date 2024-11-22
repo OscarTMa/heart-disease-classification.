@@ -2,7 +2,7 @@
 **Description**
 This project aims to classify the presence of heart disease using the Heart Disease UCI dataset. It explores various machine learning algorithms to predict whether a patient is likely to have heart disease based on medical attributes such as age, cholesterol levels, blood pressure, and more.
 
-The goal is to demonstrate expertise in:
+`The goal is to demonstrate expertise in:`
 
 - Data preprocessing and exploratory data analysis (EDA).
 - Building and evaluating classification models.
