@@ -2,7 +2,7 @@
 **Description**
 This project aims to classify the presence of heart disease using the Heart Disease UCI dataset. It explores various machine learning algorithms to predict whether a patient is likely to have heart disease based on medical attributes such as age, cholesterol levels, blood pressure, and more.
 
-`The goal is to demonstrate expertise in:`
+The goal is to demonstrate expertise in:
 
 - Data preprocessing and exploratory data analysis (EDA).
 - Building and evaluating classification models.
@@ -17,13 +17,13 @@ It contains 14 features, including both numerical and categorical variables, and
 To run the project locally, follow these steps:
 
     1.Clone this repository:
-      git clone https://github.com/oscarTMa/heart-disease-classification.git
+      `git clone https://github.com/oscarTMa/heart-disease-classification.git`
 
     2.Navigate to the project directory:
-      cd heart-disease-classification
+      `cd heart-disease-classification`
 
     3.Install the required Python libraries:**
-      pip install -r requirements.txt
+      `pip install -r requirements.txt`
 
 # Usage
     Notebook:                                    
@@ -43,10 +43,12 @@ heart-disease-classification/
 ├── src/                    # Source code for preprocessing and models                            
 └── app.py                  # Streamlit app for the interactive dashboard                       
 
-**Contributing**                                                
+**Contributing**                   
+
 Contributions are welcome! Feel free to open issues or submit pull requests to improve this project.
 
 **License**                                                           
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
