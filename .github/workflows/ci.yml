@@ -21,7 +21,7 @@ jobs:
     # Step 3: Install dependencies
     - name: Install dependencies
       run: |
-          pip install -r requirements.txt
+          #pip install -r requirements.txt
           pip install jupyter
         
     # Step : Run notebook to train models
