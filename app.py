@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+import setuptools
 
 # Cargar el modelo entrenado
 model = pickle.load(open('heart_disease_model.pkl', 'rb'))
