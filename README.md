@@ -17,7 +17,7 @@ It contains 14 features, including both numerical and categorical variables, and
 To run the project locally, follow these steps:
 
 1.Clone this repository:                               
-    `git clone https://github.com/oscarTMa/heart-disease-classification.git`
+      `git clone https://github.com/oscarTMa/heart-disease-classification.git`
 
 2.Navigate to the project directory:                                    
       `cd heart-disease-classification`
