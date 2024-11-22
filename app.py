@@ -4,6 +4,20 @@ import numpy as np
 import pickle
 import setuptools
 
+setuptools.setup(
+    name="heart-disease-classification",
+    version="1.0.0",
+    description="Heart Disease Classification Dashboard",
+    author="Your Name",
+    packages=setuptools.find_packages(),
+    install_requires=[
+        "streamlit>=1.0",
+        "pandas",
+        "scikit-learn",
+        "numpy",
+    ],
+)
+
 # Cargar el modelo entrenado
 model = pickle.load(open('heart_disease_model.pkl', 'rb'))
 
