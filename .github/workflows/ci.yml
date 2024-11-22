@@ -18,10 +18,9 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-
     - name: Deploy to Streamlit Cloud
       run: |
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
         streamlit run app.py
