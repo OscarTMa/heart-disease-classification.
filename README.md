@@ -8,7 +8,8 @@
 6. [Contributing](#contributing)
 7. [License](#license)
 8. [Analysis](#analysis)
-   
+9. [Heart Disease Prediction Dashboard](#Heart Disease Prediction Dashboard)
+    
 ## Description                                                      
 This project aims to classify the presence of heart disease using the Heart Disease UCI dataset. It explores various machine learning algorithms to predict whether a patient is likely to have heart disease based on medical attributes such as age, cholesterol levels, blood pressure, and more.
 
@@ -112,6 +113,8 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 To improve performance, **Random Forest** or **XGBoost** are the most robust models, which we can explore further, possibly with **hyperparameter tuning** to achieve better results.
 
+## Heart Disease Prediction Dashboard
+Explore the interactive dashboard [here](https://heart-disease-classification-tk7y5shpqsbjxenm6sunxm.streamlit.app/).  
 
 
 
