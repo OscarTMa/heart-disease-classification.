@@ -1,5 +1,15 @@
 # Heart Disease Classification
-**Description**
+## Table of Contents
+1. [Description](#description)
+2. [Dataset](#dataset)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Project Structure](#project-structure)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Workflows](#workflows)
+   
+## Description                                                      
 This project aims to classify the presence of heart disease using the Heart Disease UCI dataset. It explores various machine learning algorithms to predict whether a patient is likely to have heart disease based on medical attributes such as age, cholesterol levels, blood pressure, and more.
 
 The goal is to demonstrate expertise in:
@@ -8,12 +18,12 @@ The goal is to demonstrate expertise in:
 - Building and evaluating classification models.
 - Developing an interactive dashboard for visualizing predictions.
 
-**Dataset**
+## Dataset
 
 The dataset is sourced from Kaggle: Heart Disease UCI Dataset.
 It contains 14 features, including both numerical and categorical variables, and a target column (target) indicating the presence (1) or absence (0) of heart disease.
 
-**Installation**
+## Installation
 To run the project locally, follow these steps:
 
 1.Clone this repository:                               
@@ -32,7 +42,7 @@ To run the project locally, follow these steps:
     Dashboard:
     An interactive dashboard will be built using Streamlit to showcase predictions and insights. Instructions for running the dashboard will be added in later stages.
 
-**Project Structure**
+## Project Structure
 
 heart-disease-classification/                                         
 │                                      
@@ -43,11 +53,11 @@ heart-disease-classification/
 ├── src/                    # Source code for preprocessing and models                            
 └── app.py                  # Streamlit app for the interactive dashboard                       
 
-**Contributing**                   
+## Contributing                   
 
 Contributions are welcome! Feel free to open issues or submit pull requests to improve this project.
 
-**License**                                                           
+## License                                                           
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
