@@ -64,7 +64,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests to i
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Analysis 
+## Analysis (see the notebook)
 
 **1. Logistic Regression**
 - Accuracy: 0.8533                 
