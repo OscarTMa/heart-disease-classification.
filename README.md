@@ -8,7 +8,7 @@
 6. [Contributing](#contributing)
 7. [License](#license)
 8. [Analysis](#analysis)
-9. [Heart Disease Prediction Dashboard](#Heart Disease Prediction Dashboard).
+9. [Heart Disease Prediction Dashboard](#heart-disease-prediction-dashboard).
     
 ## Description                                                      
 This project aims to classify the presence of heart disease using the Heart Disease UCI dataset. It explores various machine learning algorithms to predict whether a patient is likely to have heart disease based on medical attributes such as age, cholesterol levels, blood pressure, and more.
