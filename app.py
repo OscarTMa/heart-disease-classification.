@@ -1,19 +1,32 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+import pickle
+import os
 
-###############################
-# Entrenar y guardar cada modelo
-for model_name, model in models.items():
-    model.fit(X_train, y_train)
-    model_path = os.path.join(models_dir, f"{model_name}.pkl")
-    with open(model_path, "wb") as file:
-        pickle.dump(model, file)
-    print(f"Model {model_name} saved at {model_path}")
-###############################
-# Crear el formulario de entrada para que el usuario ingrese los datos
+# Ruta al directorio de modelos
+models_dir = "models"
+
+# Cargar los modelos
+model_files = {
+    'Logistic Regression': os.path.join(models_dir, "LogisticRegression.pkl"),
+    'Decision Tree': os.path.join(models_dir, "DecisionTree.pkl"),
+    'Random Forest': os.path.join(models_dir, "RandomForest.pkl"),
+    'XGBoost': os.path.join(models_dir, "XGBoost.pkl"),
+}
+
+models = {}
+for model_name, model_path in model_files.items():
+    with open(model_path, "rb") as file:
+        models[model_name] = pickle.load(file)
+
+# Título de la aplicación
 st.title('Heart Disease Prediction')
 
+# Seleccionar el modelo
+selected_model_name = st.selectbox('Select Model', list(models.keys()))
+selected_model = models[selected_model_name]
+
+# Crear el formulario de entrada para que el usuario ingrese los datos
 age = st.slider('Age', 20, 100, 50)
 sex = st.selectbox('Sex', ['Male', 'Female'])
 cp = st.selectbox('Chest Pain Type', [1, 2, 3, 4])  # Ejemplo de valores de CP
@@ -28,10 +41,8 @@ slope = st.selectbox('Slope of ST Segment', [1, 2, 3])
 
 # Preprocesar los datos de entrada
 sex = 1 if sex == 'Male' else 0
-restecg = int(restecg)
-exang = int(exang)
 
-# Crear el DataFrame para hacer la predicción
+# Crear el DataFrame para la predicción
 input_data = pd.DataFrame({
     'Age': [age],
     'Sex': [sex],
@@ -46,11 +57,11 @@ input_data = pd.DataFrame({
     'ST_Slope': [slope]
 })
 
-# Realizar la predicción
-prediction = model.predict(input_data)
-
-# Mostrar el resultado
-if prediction == 1:
-    st.success('The patient has a higher risk of heart disease.')
-else:
-    st.success('The patient has a lower risk of heart disease.')
+# Botón para realizar la predicción
+if st.button('Predict'):
+    prediction = selected_model.predict(input_data)[0]
+    # Mostrar el resultado
+    if prediction == 1:
+        st.success(f'The patient has a higher risk of heart disease using {selected_model_name}.')
+    else:
+        st.success(f'The patient has a lower risk of heart disease using {selected_model_name}.')
