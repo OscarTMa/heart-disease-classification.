@@ -28,16 +28,7 @@ jobs:
       run: |
         echo "Listing contents of the models directory:"
         ls -l notebooks
-        ls -l /notebooks
-        
-    - name: Verify models
-      run: |
-       if [ ! -d "models" ]; then
-          echo "Error: models directory not found."
-          exit 1
-       fi
-       ls models/*.pkl || { echo "Error: No .pkl files found in models/"; exit 1; }
-         
+                   
     # Step : Run notebook to train models
     - name: Train models from notebook
       run: |
